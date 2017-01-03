@@ -1,0 +1,10 @@
+grammar org.ne.xtext.example.program.ProgramDsl with org.eclipse.xtext.xbase.Xbase
+
+import "http://www.eclipse.org/xtext/xbase/Xbase"
+generate programDsl "http://www.ne.org/xtext/example/program/ProgramDsl"
+
+Program:
+	body=Body;
+
+Body returns XBlockExpression:
+	{Body} (expressions+=XExpressionOrVarDeclaration ';'?)*;
